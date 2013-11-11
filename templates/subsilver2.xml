@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml-stylesheet type="text/xsl" href="modx.prosilver.en.xsl"?>
+<!-- For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD. Although MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD. No support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/ -->
+<mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.5.xsd">
+	<header>
+		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
+		
+		<title lang="en"><![CDATA[SEO Friendly Forum Title]]></title>
+		<title lang="pl"><![CDATA[SEO Friendly Forum Title]]></title>
+		
+		<description lang="en"><![CDATA[Changes forum title format (in the <title> tag) to more SEO friendly, e.g. Topic title • Forum name • yourdomain.com.]]></description>
+		<description lang="pl"><![CDATA[Zmienia format tytułu forum (w znaczniku <title>) na przyjaźniejszy dla wyszukiwarek, np. Tytuł tematu • Nazwa forum • twojadomena.pl.]]></description>
+		
+		<author-group>
+			<author>
+				<realname><![CDATA[Jarosław Pustuła]]></realname>
+				<username><![CDATA[medeish]]></username>
+				<homepage><![CDATA[http://inventia.io]]></homepage>
+				<email><![CDATA[office@inventia.io]]></email>
+				<contributions-group>
+					<contributions status="current" from="2008-08-10" position="Developer"></contributions>
+				</contributions-group>
+			</author>
+		</author-group>
+		
+		<mod-version>2.0.2</mod-version>
+		
+		<installation>
+			<level>easy</level>
+			<time>300</time>
+			<target-version>3.0.7-PL1</target-version>
+		</installation>
+
+		<history>
+			<entry>
+				<date>2008-08-10</date>
+				<rev-version>1.0.0</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Initial release]]></change>
+				</changelog>
+				<changelog lang="pl">
+					<change><![CDATA[Pierwsze wydanie]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2009-06-21</date>
+				<rev-version>2.0.0</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Optimized titles on memberlist and groups pages]]></change>
+					<change><![CDATA[New title format in user profile]]></change>
+					<change><![CDATA[Added title rewriting for pop-ups]]></change>
+					<change><![CDATA[Fixed double main page title in MCP]]></change>
+				</changelog>
+				<changelog lang="pl">
+					<change><![CDATA[Optymalizacja tytułów na liście użytkowników oraz w przeglądzie grup]]></change>
+					<change><![CDATA[Nowy format tytułu w profilu użytkownika]]></change>
+					<change><![CDATA[Dodanie przepisywania tytułów w wyskakujących oknach]]></change>
+					<change><![CDATA[Usunięcie podwójnego tytułu w przeglądzie panelu moderacji]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2009-12-27</date>
+				<rev-version>2.0.1</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Adjusted to phpBB 3.0.6]]></change>
+				</changelog>
+				<changelog lang="pl">
+					<change><![CDATA[Przystosowano do phpBB 3.0.6]]></change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2010-06-30</date>
+				<rev-version>2.0.2</rev-version>
+				<changelog lang="en">
+					<change><![CDATA[Updated MODX to version 1.2.5]]></change>
+					<change><![CDATA[Updated modification instruction to work with newest AutoMOD]]></change>
+				</changelog>
+				<changelog lang="pl">
+					<change><![CDATA[Zaktualizowano MODX do wersji 1.2.5]]></change>
+					<change><![CDATA[Przystosowano instrukcję modyfikacji dla najnowszego AutoMOD–a]]></change>
+				</changelog>
+			</entry>
+		</history>
+		
+		<link-group>
+			<link type="parent" href="../install.xml" lang="en">install.xml</link>
+		</link-group>
+	</header>
+
+	
+	<action-group>
+		<open src="styles/subsilver2/template/overall_header.html">
+			<edit>
+				<comment lang="en"><![CDATA[If you have used forum description in the title, add {SITE_DESCRIPTION} before </title>.]]></comment>
+				<comment lang="pl"><![CDATA[Jeśli używasz opisu forum w tytule, dodaj {SITE_DESCRIPTION} przed </title>.]]></comment>
+				<find><![CDATA[<title>{SITENAME} &bull; <!-- IF S_IN_MCP -->{L_MCP} &bull; <!-- ELSEIF S_IN_UCP -->{L_UCP} &bull; <!-- ENDIF -->{PAGE_TITLE}</title>]]></find>
+				<action type="replace-with"><![CDATA[<title>{PAGE_TITLE}<!-- IF PAGE_TITLE --> &bull; <!-- ENDIF --><!-- IF S_IN_MCP -->{L_MCP} &bull; <!-- ELSEIF S_IN_UCP -->{L_UCP} &bull; <!-- ENDIF -->{SITENAME}</title>]]></action>
+			</edit>
+		</open>
+		
+		<open src="styles/subsilver2/template/simple_header.html">
+			<edit>
+				<comment lang="en"><![CDATA[If you have used forum description in the title, add {SITE_DESCRIPTION} before </title>.]]></comment>
+				<comment lang="pl"><![CDATA[Jeśli używasz opisu forum w tytule, dodaj {SITE_DESCRIPTION} przed </title>.]]></comment>
+				<find><![CDATA[<title>{SITENAME} &bull; <!-- IF S_IN_MCP -->{L_MCP} &bull; <!-- ELSEIF S_IN_UCP -->{L_UCP} &bull; <!-- ENDIF -->{PAGE_TITLE}</title>]]></find>
+				<action type="replace-with"><![CDATA[<title>{PAGE_TITLE}<!-- IF PAGE_TITLE --> &bull; <!-- ENDIF --><!-- IF S_IN_MCP -->{L_MCP} &bull; <!-- ELSEIF S_IN_UCP -->{L_UCP} &bull; <!-- ENDIF -->{SITENAME}</title>]]></action>
+			</edit>
+		</open>
+		
+		<diy-instructions lang="en"><![CDATA[Purge the forum cache and refresh style templates.]]></diy-instructions>
+		<diy-instructions lang="pl"><![CDATA[Wyczyść pamięć podręczną forum oraz odśwież szablony stylu.]]></diy-instructions>
+	</action-group>
+</mod>
