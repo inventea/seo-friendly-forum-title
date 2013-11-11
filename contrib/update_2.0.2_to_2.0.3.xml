@@ -94,30 +94,46 @@
 				</changelog>
 			</entry>
 		</history>
-		
+
 		<link-group>
 			<link type="parent" href="../install.xml" lang="en">install.xml</link>
 			<link type="language" href="../languages/pl.xml" lang="en">pl.xml</link>
 		</link-group>
 	</header>
-
 	
 	<action-group>
-		<open src="styles/subsilver2/template/overall_header.html">
+		<open src="language/en/common.php">
 			<edit>
-				<comment lang="en"><![CDATA[If you would have forum description in the title, add {SITE_DESCRIPTION} before </title>.]]></comment>
-				<comment lang="pl"><![CDATA[Jeśli używasz opisu forum w tytule, dodaj {SITE_DESCRIPTION} przed </title>.]]></comment>
-				<find><![CDATA[<title>{SITENAME} &bull; <!-- IF S_IN_MCP -->{L_MCP} &bull; <!-- ELSEIF S_IN_UCP -->{L_UCP} &bull; <!-- ENDIF -->{PAGE_TITLE}</title>]]></find>
-				<action type="replace-with"><![CDATA[<title>{PAGE_TITLE}<!-- IF PAGE_TITLE --> &bull; <!-- ENDIF --><!-- IF S_IN_MCP -->{L_MCP} &bull;<!-- ELSEIF S_IN_UCP -->{L_UCP} &bull;<!-- ENDIF --> {SITENAME}</title>]]></action>
+				<find><![CDATA[	'PAGE_OF'				=> 'Page <strong>%1$d</strong> of <strong>%2$d</strong>',]]></find>
+				<action type="after-add"><![CDATA[	'PAGE_NUMBER'			=> 'Page %s',]]></action>
 			</edit>
 		</open>
 		
-		<open src="styles/subsilver2/template/simple_header.html">
+		<open src="styles/prosilver/template/memberlist_view.html">
 			<edit>
-				<comment lang="en"><![CDATA[If you would have forum description in the title, add {SITE_DESCRIPTION} before </title>.]]></comment>
-				<comment lang="pl"><![CDATA[Jeśli używasz opisu forum w tytule, dodaj {SITE_DESCRIPTION} przed </title>.]]></comment>
-				<find><![CDATA[<title>{SITENAME} &bull; <!-- IF S_IN_MCP -->{L_MCP} &bull; <!-- ELSEIF S_IN_UCP -->{L_UCP} &bull; <!-- ENDIF -->{PAGE_TITLE}</title>]]></find>
-				<action type="replace-with"><![CDATA[<title>{PAGE_TITLE}<!-- IF PAGE_TITLE --> &bull; <!-- ENDIF --><!-- IF S_IN_MCP -->{L_MCP} &bull;<!-- ELSEIF S_IN_UCP -->{L_UCP} &bull;<!-- ENDIF --> {SITENAME}</title>]]></action>
+				<find><![CDATA[<h2>{L_VIEWING_PROFILE}</h2>]]></find>
+				<action type="replace-with"><![CDATA[<h2>{PAGE_TITLE}</h2>]]></action>
+			</edit>
+		</open>
+		
+		<open src="memberlist.php">
+			<edit>
+				<find><![CDATA[		$page_title = $member['username'] . ' &bull; ' . $user->lang['MEMBERLIST'];]]></find>
+				<action type="replace-with"><![CDATA[		$page_title = sprintf($user->lang['VIEWING_PROFILE'], $member['username']);]]></action>
+			</edit>
+		</open>
+		
+		<open src="viewforum.php">
+			<edit>
+				<find><![CDATA[page_header($forum_data['forum_name'], true, $forum_id);]]></find>
+				<action type="replace-with"><![CDATA[page_header($forum_data['forum_name'] . ($start ? ' &bull; ' . sprintf($user->lang['PAGE_NUMBER'], floor($start / $config['topics_per_page']) + 1) : ''), true, $forum_id);]]></action>
+			</edit>
+		</open>
+		
+		<open src="viewtopic.php">
+			<edit>
+				<find><![CDATA[page_header($topic_data['topic_title'] . ' &bull; ' . $topic_data['forum_name'], true, $forum_id);]]></find>
+				<action type="replace-with"><![CDATA[page_header($topic_data['topic_title'] . ($start ? ' &bull; ' . sprintf($user->lang['PAGE_NUMBER'], floor($start / $config['posts_per_page']) + 1) : '') . ' &bull; ' . $topic_data['forum_name'], true, $forum_id);]]></action>
 			</edit>
 		</open>
 		

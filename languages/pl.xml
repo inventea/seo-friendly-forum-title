@@ -97,31 +97,16 @@
 		
 		<link-group>
 			<link type="parent" href="../install.xml" lang="en">install.xml</link>
-			<link type="language" href="../languages/pl.xml" lang="en">pl.xml</link>
+			<link type="template" href="../templates/subsilver2.xml" lang="en">subsilver2.xml</link>
 		</link-group>
 	</header>
-
 	
 	<action-group>
-		<open src="styles/subsilver2/template/overall_header.html">
+		<open src="language/pl/common.php">
 			<edit>
-				<comment lang="en"><![CDATA[If you would have forum description in the title, add {SITE_DESCRIPTION} before </title>.]]></comment>
-				<comment lang="pl"><![CDATA[Jeśli używasz opisu forum w tytule, dodaj {SITE_DESCRIPTION} przed </title>.]]></comment>
-				<find><![CDATA[<title>{SITENAME} &bull; <!-- IF S_IN_MCP -->{L_MCP} &bull; <!-- ELSEIF S_IN_UCP -->{L_UCP} &bull; <!-- ENDIF -->{PAGE_TITLE}</title>]]></find>
-				<action type="replace-with"><![CDATA[<title>{PAGE_TITLE}<!-- IF PAGE_TITLE --> &bull; <!-- ENDIF --><!-- IF S_IN_MCP -->{L_MCP} &bull;<!-- ELSEIF S_IN_UCP -->{L_UCP} &bull;<!-- ENDIF --> {SITENAME}</title>]]></action>
+				<find><![CDATA[	'PAGE_OF'			=> 'Strona <strong>%1$d</strong> z <strong>%2$d</strong>',]]></find>
+				<action type="after-add"><![CDATA[	'PAGE_NUMBER'		=> 'Strona %s',]]></action>
 			</edit>
 		</open>
-		
-		<open src="styles/subsilver2/template/simple_header.html">
-			<edit>
-				<comment lang="en"><![CDATA[If you would have forum description in the title, add {SITE_DESCRIPTION} before </title>.]]></comment>
-				<comment lang="pl"><![CDATA[Jeśli używasz opisu forum w tytule, dodaj {SITE_DESCRIPTION} przed </title>.]]></comment>
-				<find><![CDATA[<title>{SITENAME} &bull; <!-- IF S_IN_MCP -->{L_MCP} &bull; <!-- ELSEIF S_IN_UCP -->{L_UCP} &bull; <!-- ENDIF -->{PAGE_TITLE}</title>]]></find>
-				<action type="replace-with"><![CDATA[<title>{PAGE_TITLE}<!-- IF PAGE_TITLE --> &bull; <!-- ENDIF --><!-- IF S_IN_MCP -->{L_MCP} &bull;<!-- ELSEIF S_IN_UCP -->{L_UCP} &bull;<!-- ENDIF --> {SITENAME}</title>]]></action>
-			</edit>
-		</open>
-		
-		<diy-instructions lang="en">Purge forum cache and refresh style templates.</diy-instructions>
-		<diy-instructions lang="pl">Wyczyść pamięć podręczną forum oraz odśwież szablony stylu.</diy-instructions>
 	</action-group>
 </mod>

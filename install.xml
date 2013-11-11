@@ -5,30 +5,29 @@
 	<header>
 		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
 		
-		<title lang="en"><![CDATA[SEO Friendly Forum Title]]></title>
-		<title lang="pl"><![CDATA[SEO Friendly Forum Title]]></title>
+		<title lang="en">SEO Friendly Forum Title</title>
 		
-		<description lang="en"><![CDATA[Changes forum title format (in the <title> tag) to more SEO friendly, e.g. Topic title • Forum name • yourdomain.com.]]></description>
-		<description lang="pl"><![CDATA[Zmienia format tytułu forum (w znaczniku <title>) na przyjaźniejszy dla wyszukiwarek, np. Tytuł tematu • Nazwa forum • twojadomena.pl.]]></description>
+		<description lang="en"><![CDATA[Changes format of generated forum titles (the <title> tag). Puts the most important parts of title to the first place, which makes it much more SEO friendly and useful for users using multiple tabs.]]></description>
+		<description lang="pl"><![CDATA[Zmienia format generowanych tytułów forum (znacznik <title>). Umiejscawia najważniejsze elementy na pierwszym miejscu, poprawiając tym samym przyjazność (pod względem SEO) dla wyszukiwarek oraz czytelność dla użytkowników korzystających z wielu kart na raz.]]></description>
 		
 		<author-group>
 			<author>
-				<realname><![CDATA[Jarosław Pustuła]]></realname>
-				<username><![CDATA[medeish]]></username>
-				<homepage><![CDATA[http://inventia.io]]></homepage>
-				<email><![CDATA[office@inventia.io]]></email>
+				<realname>Jarosław Pustuła</realname>
+				<username>medeish</username>
+				<homepage>http://inventia.io</homepage>
+				<email>office@inventia.io</email>
 				<contributions-group>
 					<contributions status="current" from="2008-08-10" position="Developer"></contributions>
 				</contributions-group>
 			</author>
 		</author-group>
 		
-		<mod-version>2.0.2</mod-version>
+		<mod-version>2.0.3</mod-version>
 		
 		<installation>
 			<level>easy</level>
 			<time>300</time>
-			<target-version>3.0.7-PL1</target-version>
+			<target-version>3.0.8</target-version>
 		</installation>
 
 		<history>
@@ -36,53 +35,69 @@
 				<date>2008-08-10</date>
 				<rev-version>1.0.0</rev-version>
 				<changelog lang="en">
-					<change><![CDATA[Initial release]]></change>
+					<change>Initial release</change>
 				</changelog>
 				<changelog lang="pl">
-					<change><![CDATA[Pierwsze wydanie]]></change>
+					<change>Pierwsze wydanie</change>
 				</changelog>
 			</entry>
 			<entry>
 				<date>2009-06-21</date>
 				<rev-version>2.0.0</rev-version>
 				<changelog lang="en">
-					<change><![CDATA[Optimized titles on memberlist and groups pages]]></change>
-					<change><![CDATA[New title format in user profile]]></change>
-					<change><![CDATA[Added title rewriting for pop-ups]]></change>
-					<change><![CDATA[Fixed double main page title in MCP]]></change>
+					<change>Optimized titles on memberlist and groups pages</change>
+					<change>New title format in user profile</change>
+					<change>Added title rewriting for pop-ups</change>
+					<change>Fixed double main page title in MCP</change>
 				</changelog>
 				<changelog lang="pl">
-					<change><![CDATA[Optymalizacja tytułów na liście użytkowników oraz w przeglądzie grup]]></change>
-					<change><![CDATA[Nowy format tytułu w profilu użytkownika]]></change>
-					<change><![CDATA[Dodanie przepisywania tytułów w wyskakujących oknach]]></change>
-					<change><![CDATA[Usunięcie podwójnego tytułu w przeglądzie panelu moderacji]]></change>
+					<change>Optymalizacja tytułów na liście użytkowników oraz w przeglądzie grup</change>
+					<change>Nowy format tytułu w profilu użytkownika</change>
+					<change>Dodanie przepisywania tytułów w wyskakujących oknach</change>
+					<change>Usunięcie podwójnego tytułu w przeglądzie panelu moderacji</change>
 				</changelog>
 			</entry>
 			<entry>
 				<date>2009-12-27</date>
 				<rev-version>2.0.1</rev-version>
 				<changelog lang="en">
-					<change><![CDATA[Adjusted to phpBB 3.0.6]]></change>
+					<change>Adjusted to phpBB 3.0.6</change>
 				</changelog>
 				<changelog lang="pl">
-					<change><![CDATA[Przystosowano do phpBB 3.0.6]]></change>
+					<change>Przystosowano do phpBB 3.0.6</change>
 				</changelog>
 			</entry>
 			<entry>
 				<date>2010-06-30</date>
 				<rev-version>2.0.2</rev-version>
 				<changelog lang="en">
-					<change><![CDATA[Updated MODX to version 1.2.5]]></change>
-					<change><![CDATA[Updated modification instruction to work with newest AutoMOD]]></change>
+					<change>Updated MODX to version 1.2.5</change>
+					<change>Updated modification instruction to work with newest AutoMOD</change>
 				</changelog>
 				<changelog lang="pl">
-					<change><![CDATA[Zaktualizowano MODX do wersji 1.2.5]]></change>
-					<change><![CDATA[Przystosowano instrukcję modyfikacji dla najnowszego AutoMOD–a]]></change>
+					<change>Zaktualizowano MODX do wersji 1.2.5</change>
+					<change>Przystosowano instrukcję modyfikacji dla najnowszego AutoMOD–a</change>
+				</changelog>
+			</entry>
+			<entry>
+				<date>2010-12-08</date>
+				<rev-version>2.0.3</rev-version>
+				<changelog lang="en">
+					<change>Added page numbering in titles on viewforum and viewtopic</change>
+					<change>Some small changes</change>
+					<change>Tested with phpBB 3.0.8</change>
+				</changelog>
+				<changelog lang="pl">
+					<change>Dodano w tytule numerowanie stron forum oraz tematu</change>
+					<change>Drobne poprawki</change>
+					<change>Przetestowano z phpBB 3.0.8</change>
 				</changelog>
 			</entry>
 		</history>
 
 		<link-group>
+			<link type="contrib" href="contrib/update_2.0.2_to_2.0.3.xml" lang="en">update_2.0.2_to_2.0.3.xml</link>
+			<link type="language" href="languages/pl.xml" lang="en">pl.xml</link>
 			<link type="template" href="templates/subsilver2.xml" lang="en">subsilver2.xml</link>
 		</link-group>
 	</header>
@@ -95,28 +110,28 @@
 			</edit>
 		</open>
 		
-		<open src="styles/prosilver/template/memberlist_view.html">
+		<open src="language/en/common.php">
 			<edit>
-				<find><![CDATA[<h2>{PAGE_TITLE}</h2>]]></find>
-				<action type="replace-with"><![CDATA[<h2>{L_VIEWING_PROFILE}</h2>]]></action>
+				<find><![CDATA[	'PAGE_OF'				=> 'Page <strong>%1$d</strong> of <strong>%2$d</strong>',]]></find>
+				<action type="after-add"><![CDATA[	'PAGE_NUMBER'			=> 'Page %s',]]></action>
 			</edit>
 		</open>
 		
 		<open src="styles/prosilver/template/overall_header.html">
 			<edit>
-				<comment lang="en"><![CDATA[If you have used forum description in the title, add {SITE_DESCRIPTION} before </title>.]]></comment>
+				<comment lang="en"><![CDATA[If you would have forum description in the title, add {SITE_DESCRIPTION} before </title>.]]></comment>
 				<comment lang="pl"><![CDATA[Jeśli używasz opisu forum w tytule, dodaj {SITE_DESCRIPTION} przed </title>.]]></comment>
 				<find><![CDATA[<title>{SITENAME} &bull; <!-- IF S_IN_MCP -->{L_MCP} &bull; <!-- ELSEIF S_IN_UCP -->{L_UCP} &bull; <!-- ENDIF -->{PAGE_TITLE}</title>]]></find>
-				<action type="replace-with"><![CDATA[<title>{PAGE_TITLE}<!-- IF PAGE_TITLE --> &bull; <!-- ENDIF --><!-- IF S_IN_MCP -->{L_MCP} &bull; <!-- ELSEIF S_IN_UCP -->{L_UCP} &bull; <!-- ENDIF -->{SITENAME}</title>]]></action>
+				<action type="replace-with"><![CDATA[<title>{PAGE_TITLE}<!-- IF PAGE_TITLE --> &bull; <!-- ENDIF --><!-- IF S_IN_MCP -->{L_MCP} &bull;<!-- ELSEIF S_IN_UCP -->{L_UCP} &bull;<!-- ENDIF --> {SITENAME}</title>]]></action>
 			</edit>
 		</open>
 		
 		<open src="styles/prosilver/template/simple_header.html">
 			<edit>
-				<comment lang="en"><![CDATA[If you have used forum description in the title, add {SITE_DESCRIPTION} before </title>.]]></comment>
+				<comment lang="en"><![CDATA[If you would have forum description in the title, add {SITE_DESCRIPTION} before </title>.]]></comment>
 				<comment lang="pl"><![CDATA[Jeśli używasz opisu forum w tytule, dodaj {SITE_DESCRIPTION} przed </title>.]]></comment>
 				<find><![CDATA[<title>{SITENAME} &bull; <!-- IF S_IN_MCP -->{L_MCP} &bull; <!-- ELSEIF S_IN_UCP -->{L_UCP} &bull; <!-- ENDIF -->{PAGE_TITLE}</title>]]></find>
-				<action type="replace-with"><![CDATA[<title>{PAGE_TITLE}<!-- IF PAGE_TITLE --> &bull; <!-- ENDIF --><!-- IF S_IN_MCP -->{L_MCP} &bull; <!-- ELSEIF S_IN_UCP -->{L_UCP} &bull; <!-- ENDIF -->{SITENAME}</title>]]></action>
+				<action type="replace-with"><![CDATA[<title>{PAGE_TITLE}<!-- IF PAGE_TITLE --> &bull; <!-- ENDIF --><!-- IF S_IN_MCP -->{L_MCP} &bull;<!-- ELSEIF S_IN_UCP -->{L_UCP} &bull;<!-- ENDIF --> {SITENAME}</title>]]></action>
 			</edit>
 		</open>
 		
@@ -128,10 +143,6 @@
 		</open>
 		
 		<open src="memberlist.php">
-			<edit>
-				<find><![CDATA[		$page_title = sprintf($user->lang['VIEWING_PROFILE'], $member['username']);]]></find>
-				<action type="replace-with"><![CDATA[		$page_title = $member['username'] . ' &bull; ' . $user->lang['MEMBERLIST'];]]></action>
-			</edit>
 			<edit>
 				<remove><![CDATA[		// Send an email
 		$page_title = $user->lang['SEND_EMAIL'];
@@ -169,18 +180,18 @@
 		<open src="viewforum.php">
 			<edit>
 				<find><![CDATA[page_header($user->lang['VIEW_FORUM'] . ' - ' . $forum_data['forum_name'], true, $forum_id);]]></find>
-				<action type="replace-with"><![CDATA[page_header($forum_data['forum_name'], true, $forum_id);]]></action>
+				<action type="replace-with"><![CDATA[page_header($forum_data['forum_name'] . ($start ? ' &bull; ' . sprintf($user->lang['PAGE_NUMBER'], floor($start / $config['topics_per_page']) + 1) : ''), true, $forum_id);]]></action>
 			</edit>
 		</open>
 		
 		<open src="viewtopic.php">
 			<edit>
 				<find><![CDATA[page_header($user->lang['VIEW_TOPIC'] . ' - ' . $topic_data['topic_title'], true, $forum_id);]]></find>
-				<action type="replace-with"><![CDATA[page_header($topic_data['topic_title'] . ' &bull; ' . $topic_data['forum_name'], true, $forum_id);]]></action>
+				<action type="replace-with"><![CDATA[page_header($topic_data['topic_title'] . ($start ? ' &bull; ' . sprintf($user->lang['PAGE_NUMBER'], floor($start / $config['posts_per_page']) + 1) : '') . ' &bull; ' . $topic_data['forum_name'], true, $forum_id);]]></action>
 			</edit>
 		</open>
 		
-		<diy-instructions lang="en"><![CDATA[Purge the forum cache and refresh style templates.]]></diy-instructions>
-		<diy-instructions lang="pl"><![CDATA[Wyczyść pamięć podręczną forum oraz odśwież szablony stylu.]]></diy-instructions>
+		<diy-instructions lang="en">Purge forum cache and refresh style templates.</diy-instructions>
+		<diy-instructions lang="pl">Wyczyść pamięć podręczną forum oraz odśwież szablony stylu.</diy-instructions>
 	</action-group>
 </mod>
