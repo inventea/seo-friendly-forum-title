@@ -3,12 +3,11 @@
 <!-- For security purposes, please check: http://www.phpbb.com/mods/ for the latest version of this MOD. Although MODs are checked before being allowed in the MODs Database there is no guarantee that there are no security problems within the MOD. No support will be given for MODs not found within the MODs Database which can be found at http://www.phpbb.com/mods/ -->
 <mod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.phpbb.com/mods/xml/modx-1.2.5.xsd">
 	<header>
-		<license><![CDATA[http://opensource.org/licenses/gpl-license.php GNU General Public License v2]]></license>
+		<license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
 		
 		<title lang="en">SEO Friendly Forum Title</title>
 		
-		<description lang="en"><![CDATA[Changes format of generated forum titles (the <title> tag). Puts the most important parts of title to the first place, which makes it much more SEO friendly and useful for users using multiple tabs.]]></description>
-		<description lang="pl"><![CDATA[Zmienia format generowanych tytułów forum (znacznik <title>). Umiejscawia najważniejsze elementy na pierwszym miejscu, poprawiając tym samym przyjazność (pod względem SEO) dla wyszukiwarek oraz czytelność dla użytkowników korzystających z wielu kart na raz.]]></description>
+		<description lang="en"><![CDATA[Changes format of generated forum titles (the <title> tag). Puts the most important parts of title to the first place, which makes it much more SEO friendly and useful for users using multiple tabs. Adds also pagination numbers to prevent duplicated titles.]]></description>
 		
 		<author-group>
 			<author>
@@ -22,12 +21,12 @@
 			</author>
 		</author-group>
 		
-		<mod-version>2.0.3</mod-version>
+		<mod-version>2.0.4</mod-version>
 		
 		<installation>
 			<level>easy</level>
 			<time>300</time>
-			<target-version>3.0.8</target-version>
+			<target-version>3.0.11</target-version>
 		</installation>
 
 		<history>
@@ -36,9 +35,6 @@
 				<rev-version>1.0.0</rev-version>
 				<changelog lang="en">
 					<change>Initial release</change>
-				</changelog>
-				<changelog lang="pl">
-					<change>Pierwsze wydanie</change>
 				</changelog>
 			</entry>
 			<entry>
@@ -50,21 +46,12 @@
 					<change>Added title rewriting for pop-ups</change>
 					<change>Fixed double main page title in MCP</change>
 				</changelog>
-				<changelog lang="pl">
-					<change>Optymalizacja tytułów na liście użytkowników oraz w przeglądzie grup</change>
-					<change>Nowy format tytułu w profilu użytkownika</change>
-					<change>Dodanie przepisywania tytułów w wyskakujących oknach</change>
-					<change>Usunięcie podwójnego tytułu w przeglądzie panelu moderacji</change>
-				</changelog>
 			</entry>
 			<entry>
 				<date>2009-12-27</date>
 				<rev-version>2.0.1</rev-version>
 				<changelog lang="en">
 					<change>Adjusted to phpBB 3.0.6</change>
-				</changelog>
-				<changelog lang="pl">
-					<change>Przystosowano do phpBB 3.0.6</change>
 				</changelog>
 			</entry>
 			<entry>
@@ -73,10 +60,6 @@
 				<changelog lang="en">
 					<change>Updated MODX to version 1.2.5</change>
 					<change>Updated modification instruction to work with newest AutoMOD</change>
-				</changelog>
-				<changelog lang="pl">
-					<change>Zaktualizowano MODX do wersji 1.2.5</change>
-					<change>Przystosowano instrukcję modyfikacji dla najnowszego AutoMOD–a</change>
 				</changelog>
 			</entry>
 			<entry>
@@ -87,10 +70,14 @@
 					<change>Some small changes</change>
 					<change>Tested with phpBB 3.0.8</change>
 				</changelog>
-				<changelog lang="pl">
-					<change>Dodano w tytule numerowanie stron forum oraz tematu</change>
-					<change>Drobne poprawki</change>
-					<change>Przetestowano z phpBB 3.0.8</change>
+			</entry>
+			<entry>
+				<date>2012-09-16</date>
+				<rev-version>2.0.4</rev-version>
+				<changelog lang="en">
+					<change>Added page numbering in titles on memberlist.php</change>
+					<change>Added page numbering in titles on search.php</change>
+					<change>Added search query to page title in search.php</change>
 				</changelog>
 			</entry>
 		</history>
@@ -106,7 +93,6 @@
 		<open src="styles/subsilver2/template/overall_header.html">
 			<edit>
 				<comment lang="en"><![CDATA[If you would have forum description in the title, add {SITE_DESCRIPTION} before </title>.]]></comment>
-				<comment lang="pl"><![CDATA[Jeśli używasz opisu forum w tytule, dodaj {SITE_DESCRIPTION} przed </title>.]]></comment>
 				<find><![CDATA[<title>{SITENAME} &bull; <!-- IF S_IN_MCP -->{L_MCP} &bull; <!-- ELSEIF S_IN_UCP -->{L_UCP} &bull; <!-- ENDIF -->{PAGE_TITLE}</title>]]></find>
 				<action type="replace-with"><![CDATA[<title>{PAGE_TITLE}<!-- IF PAGE_TITLE --> &bull; <!-- ENDIF --><!-- IF S_IN_MCP -->{L_MCP} &bull;<!-- ELSEIF S_IN_UCP -->{L_UCP} &bull;<!-- ENDIF --> {SITENAME}</title>]]></action>
 			</edit>
@@ -115,13 +101,11 @@
 		<open src="styles/subsilver2/template/simple_header.html">
 			<edit>
 				<comment lang="en"><![CDATA[If you would have forum description in the title, add {SITE_DESCRIPTION} before </title>.]]></comment>
-				<comment lang="pl"><![CDATA[Jeśli używasz opisu forum w tytule, dodaj {SITE_DESCRIPTION} przed </title>.]]></comment>
 				<find><![CDATA[<title>{SITENAME} &bull; <!-- IF S_IN_MCP -->{L_MCP} &bull; <!-- ELSEIF S_IN_UCP -->{L_UCP} &bull; <!-- ENDIF -->{PAGE_TITLE}</title>]]></find>
 				<action type="replace-with"><![CDATA[<title>{PAGE_TITLE}<!-- IF PAGE_TITLE --> &bull; <!-- ENDIF --><!-- IF S_IN_MCP -->{L_MCP} &bull;<!-- ELSEIF S_IN_UCP -->{L_UCP} &bull;<!-- ENDIF --> {SITENAME}</title>]]></action>
 			</edit>
 		</open>
 		
 		<diy-instructions lang="en">Purge forum cache and refresh style templates.</diy-instructions>
-		<diy-instructions lang="pl">Wyczyść pamięć podręczną forum oraz odśwież szablony stylu.</diy-instructions>
 	</action-group>
 </mod>

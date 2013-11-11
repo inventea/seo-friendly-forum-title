@@ -5,7 +5,7 @@
 	<header>
 		<license>http://opensource.org/licenses/gpl-license.php GNU General Public License v2</license>
 		
-		<title lang="en">Update from 2.0.2 to 2.0.3</title>
+		<title lang="en">Update from 2.0.3 to 2.0.4</title>
 		
 		<description lang="en"><![CDATA[Changes format of generated forum titles (the <title> tag). Puts the most important parts of title to the first place, which makes it much more SEO friendly and useful for users using multiple tabs. Adds also pagination numbers to prevent duplicated titles.]]></description>
 		
@@ -21,12 +21,12 @@
 			</author>
 		</author-group>
 		
-		<mod-version>2.0.3</mod-version>
+		<mod-version>2.0.4</mod-version>
 		
 		<installation>
 			<level>easy</level>
 			<time>300</time>
-			<target-version>3.0.8</target-version>
+			<target-version>3.0.11</target-version>
 		</installation>
 
 		<history>
@@ -84,44 +84,29 @@
 
 		<link-group>
 			<link type="parent" href="../install.xml" lang="en">install.xml</link>
-			<link type="contrib" href="update_2.0.3_to_2.0.4.xml" lang="en">update_2.0.3_to_2.0.4.xml</link>
+			<link type="contrib" href="update_2.0.2_to_2.0.3.xml" lang="en">update_2.0.2_to_2.0.3.xml</link>
 			<link type="language" href="../languages/pl.xml" lang="en">pl.xml</link>
 		</link-group>
 	</header>
 	
 	<action-group>
-		<open src="language/en/common.php">
-			<edit>
-				<find><![CDATA[	'PAGE_OF'				=> 'Page <strong>%1$d</strong> of <strong>%2$d</strong>',]]></find>
-				<action type="after-add"><![CDATA[	'PAGE_NUMBER'			=> 'Page %s',]]></action>
-			</edit>
-		</open>
-		
-		<open src="styles/prosilver/template/memberlist_view.html">
-			<edit>
-				<find><![CDATA[<h2>{L_VIEWING_PROFILE}</h2>]]></find>
-				<action type="replace-with"><![CDATA[<h2>{PAGE_TITLE}</h2>]]></action>
-			</edit>
-		</open>
-		
 		<open src="memberlist.php">
 			<edit>
-				<find><![CDATA[		$page_title = $member['username'] . ' &bull; ' . $user->lang['MEMBERLIST'];]]></find>
-				<action type="replace-with"><![CDATA[		$page_title = sprintf($user->lang['VIEWING_PROFILE'], $member['username']);]]></action>
+				<find><![CDATA[		// The basic memberlist
+		$page_title = $user->lang['MEMBERLIST'];]]></find>
+				<action type="replace-with"><![CDATA[		// The basic memberlist
+		$page_title = $user->lang['MEMBERLIST'] . (($start) ? ' &bull; ' . sprintf($user->lang['PAGE_NUMBER'], floor($start / $config['topics_per_page']) + 1) : '');]]></action>
 			</edit>
 		</open>
 		
-		<open src="viewforum.php">
+		<open src="search.php">
 			<edit>
-				<find><![CDATA[page_header($forum_data['forum_name'], true, $forum_id);]]></find>
-				<action type="replace-with"><![CDATA[page_header($forum_data['forum_name'] . ($start ? ' &bull; ' . sprintf($user->lang['PAGE_NUMBER'], floor($start / $config['topics_per_page']) + 1) : ''), true, $forum_id);]]></action>
-			</edit>
-		</open>
-		
-		<open src="viewtopic.php">
-			<edit>
-				<find><![CDATA[page_header($topic_data['topic_title'] . ' &bull; ' . $topic_data['forum_name'], true, $forum_id);]]></find>
-				<action type="replace-with"><![CDATA[page_header($topic_data['topic_title'] . ($start ? ' &bull; ' . sprintf($user->lang['PAGE_NUMBER'], floor($start / $config['posts_per_page']) + 1) : '') . ' &bull; ' . $topic_data['forum_name'], true, $forum_id);]]></action>
+				<find><![CDATA[	page_header(($l_search_title) ? $l_search_title : $user->lang['SEARCH']);]]></find>
+				<action type="replace-with"><![CDATA[	// Add searched query and pagination to page title
+	$l_search_title_details = (!empty($search->search_query)) ? ': ' . $search->search_query : '';
+	$l_search_title_details .= ($start) ? ' &bull; ' . sprintf($user->lang['PAGE_NUMBER'], floor($start / $config['topics_per_page']) + 1) : '';
+	
+	page_header(($l_search_title) ? $l_search_title : $user->lang['SEARCH'] . $l_search_title_details);]]></action>
 			</edit>
 		</open>
 		
